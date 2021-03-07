@@ -1,9 +1,12 @@
-import java.nio.file.Path;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,8 +17,14 @@ public class Main {
         sc.next();
     }
 
-    public static List<String> getText(String pathToFile) {
-        Paths.get(pathToFile);
-        return new ArrayList<String>(Arrays.asList("string", "aaa"));
+    public static List<String> getText(String pathToFile) throws IOException {
+        var path = Paths.get(pathToFile);
+        try {
+            return Files.lines(path, StandardCharsets.UTF_8)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            System.out.println("File doesnt exists.");
+            throw e;
+        }
     }
 }
