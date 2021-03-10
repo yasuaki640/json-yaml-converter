@@ -3,7 +3,7 @@ package util;
 import java.util.Locale;
 
 public class FileTypeDiscriminator {
-    
+
     public static FileType discriminateFileType(String path) throws Exception {
         path = path.toLowerCase(Locale.ROOT);
 
