@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import util.FileType;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,5 +20,11 @@ public class MainTests {
     @Test
     void test_getText_failure() throws IOException {
         assertThrows(IOException.class, () -> Main.getText("./path/to/not/exist/file"));
+    }
+
+    @Test
+    void test_discriminateFileType_json() {
+        FileType type = Main.discriminateFileType("./src/test/java/data/data.json");
+        assertEquals(type, FileType.JSON);
     }
 }
