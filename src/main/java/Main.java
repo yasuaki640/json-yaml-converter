@@ -25,15 +25,15 @@ public class Main {
                 .collect(Collectors.toList());
     }
 
-    public static FileType discriminateFileType(String path) {
+    public static FileType discriminateFileType(String path) throws Exception {
         path = path.toLowerCase(Locale.ROOT);
-        
+
         if (path.matches(".*json")) {
             return FileType.JSON;
         } else if (path.matches(".*ya*ml")) {
             return FileType.YAML;
-        } else {
-            return null;
         }
+
+        throw new Exception("unsupported file type detected");
     }
 }

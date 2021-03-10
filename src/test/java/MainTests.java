@@ -23,21 +23,30 @@ public class MainTests {
     }
 
     @Test
-    void test_discriminateFileType_json() {
+    void test_discriminateFileType_json() throws Exception {
         FileType type = Main.discriminateFileType("./src/test/java/data/data.json");
         assertEquals(type, FileType.JSON);
     }
 
     @Test
-    void test_discriminateFileType_yml() {
+    void test_discriminateFileType_yml() throws Exception {
         FileType ymlType = Main.discriminateFileType("./src/test/java/data/data.yml");
         assertEquals(ymlType, FileType.YAML);
     }
 
     @Test
-    void test_discriminateFileType_yaml() {
+    void test_discriminateFileType_yaml() throws Exception {
         FileType yamlType = Main.discriminateFileType("./src/test/java/data/data.yaml");
         assertEquals(yamlType, FileType.YAML);
+    }
+
+    @Test
+    void test_discriminateFileType_unsupported() throws Exception {
+        assertThrows(
+                Exception.class,
+                () -> Main.discriminateFileType("./unsupported.filetype"),
+                "unsupported file type detected"
+        );
     }
 
 }
