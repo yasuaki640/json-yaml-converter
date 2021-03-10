@@ -1,5 +1,6 @@
 package util;
 
 public enum FileType {
-    JSON
+    JSON,
+    YAML
 }

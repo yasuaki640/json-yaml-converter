@@ -27,4 +27,17 @@ public class MainTests {
         FileType type = Main.discriminateFileType("./src/test/java/data/data.json");
         assertEquals(type, FileType.JSON);
     }
+
+    @Test
+    void test_discriminateFileType_yml() {
+        FileType ymlType = Main.discriminateFileType("./src/test/java/data/data.yml");
+        assertEquals(ymlType, FileType.YAML);
+    }
+
+    @Test
+    void test_discriminateFileType_yaml() {
+        FileType yamlType = Main.discriminateFileType("./src/test/java/data/data.yaml");
+        assertEquals(yamlType, FileType.YAML);
+    }
+
 }
