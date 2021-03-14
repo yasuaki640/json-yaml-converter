@@ -32,4 +32,22 @@ class FileTypeDiscriminatorTests {
                 "unsupported file type detected"
         );
     }
+
+    @Test
+    void test_discriminateFileType_dotNotExists_yml() throws Exception {
+        assertThrows(
+                Exception.class,
+                () -> FileTypeDiscriminator.discriminateFileType("./noDotyml"),
+                "unsupported file type detected"
+        );
+    }
+
+    @Test
+    void test_discriminateFileType_dotNotExists_json() throws Exception {
+        assertThrows(
+                Exception.class,
+                () -> FileTypeDiscriminator.discriminateFileType("./noDotjson"),
+                "unsupported file type detected"
+        );
+    }
 }

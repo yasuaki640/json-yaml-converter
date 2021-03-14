@@ -7,9 +7,9 @@ public class FileTypeDiscriminator {
     public static FileType discriminateFileType(String path) throws Exception {
         path = path.toLowerCase(Locale.ROOT);
 
-        if (path.matches(".*json")) {
+        if (path.matches(".*\\.json")) {
             return FileType.JSON;
-        } else if (path.matches(".*ya*ml")) {
+        } else if (path.matches(".*\\.ya*ml")) {
             return FileType.YAML;
         }
 
